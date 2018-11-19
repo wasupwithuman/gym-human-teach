@@ -1,24 +1,26 @@
-# gym-soccer
+# gym_speak
 
-The [Soccer environment](https://github.com/LARG/HFO) is a multiagent
-domain featuring continuous state and action spaces. Currently,
-several tasks are supported:
+The gym_speak is a nlp/chatbot/ai that allows a human to give instructions to an AI as well as the correct answer.
+The agent then runs and checks to see the difference between outputs
 
-## Soccer
+## Speak
 
-The soccer task initializes a single offensive agent on the field and rewards +1 for scoring a goal and 0 otherwise. In order to score a goal, the agent will need to know how to approach the ball and kick towards the goal. The sparse nature of the goal reward makes this task very difficult to accomplish.
+The task initializes a bot, we reward the based on the loss function which is applied.
+In order to get a better score, the agent needs to respond similar to the correct response.
 
-## SoccerEmptyGoal
+## SpeakWordClose
 
-The SoccerEmptyGoal task features a more informative reward signal than the Soccer task. As before, the objective is to score a goal. However, SoccerEmtpyGoal rewards the agent for approaching the ball and moving the ball towards the goal. These frequent rewards make the task much more accessible.
+The objective of the SpeakWordClose task, allows the bot to gain points if any word in the sentence is correct.
+These frequent rewards make the task much more accessible.
 
-## SoccerAgainstKeeper
+## SpeakSentClose
 
-The objective of the SoccerAgainstKeeper task is to score against a goal keeper. The agent is rewarded for moving the ball towards the goal and for scoring a goal. The goal keeper uses a hand-coded policy developed by the Helios RoboCup team. The difficulty in this task is learning how to shoot around the goal keeper.
+The objective of the SpeakSentClose task is the sum of the loss per word. The agent is rewarded for each word, but wrong words are negative.
+The agent uses a hand-coded policy, the difficulty in this task is getting a correct sentence, not just a correct word.
 
 # Installation
 
 ```bash
-cd gym-soccer
+cd gym_speak
 pip install -e .
 ```
